@@ -1,0 +1,141 @@
+.wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.center {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+  border-radius: 100%;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+  z-index: 9;
+  width: 2px;
+  height: 110vh;
+  background: black;
+}
+
+.right {
+  display: flex;
+  align-items: stretch;
+  height: 100vh;
+  width: 50%;
+  flex-direction: column;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: perspective(80px) rotateY(110deg);
+          transform: perspective(80px) rotateY(110deg);
+}
+
+.left {
+  display: flex;
+  align-items: stretch;
+  height: 100vh;
+  width: 50%;
+  flex-direction: column;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: perspective(80px) rotateY(-110deg);
+          transform: perspective(80px) rotateY(-110deg);
+}
+
+.split_right {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  height: 100vh;
+  -webkit-filter: FlipH;
+          filter: FlipH;
+  background-image: url("../images/final-comp.jpg");
+  background-size: cover;
+  background-position: -8400px 0px;
+  -webkit-animation: trought_right 120s infinite linear;
+          animation: trought_right 120s infinite linear;
+}
+
+.split_left {
+  height: 100vh;
+  -webkit-transform-origin: center left;
+          transform-origin: center left;
+  background-image: url("../images/final-comp.jpg");
+  background-size: cover;
+  background-position: 8000px 0px;
+  -webkit-animation: trought_left 120s infinite linear;
+          animation: trought_left 120s infinite linear;
+}
+
+@-webkit-keyframes trought_right {
+  100% {
+    background-position: 8400px 0;
+  }
+}
+
+@keyframes trought_right {
+  100% {
+    background-position: 8400px 0;
+  }
+}
+@-webkit-keyframes trought_left {
+  0% {
+    background-position: -8000px 0;
+  }
+}
+@keyframes trought_left {
+  0% {
+    background-position: -8000px 0;
+  }
+}
+
+
+
+
+
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: 0 0; /* Set the initial background position */
+    display: none;
+    z-index: 99;
+    pointer-events: none;
+    
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.message{
+position: absolute;
+top: 0;
+background: white;
+z-index: 99;
+}
+
+
+
+
+
+#youtube-player-container {
+    position: fixed;
+    width: 1px;
+    height: 1px;
+    left: -9999px;
+    top: -9999px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+#youtube-player {
+    width: 1px;
+    height: 1px;
+}
