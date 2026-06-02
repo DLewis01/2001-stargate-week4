@@ -1,1 +1,113 @@
 
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>2001</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+	<script src="eyes.js" defer></script>  
+</head>
+
+<body>
+  <!-- 
+
+About Slit Scan effect — https://www.youtube.com/watch?v=KhRo2WbWnKU
+
+Picture ref — http://seriss.com/people/erco/2001/
+
+Original scene from the movie — https://www.youtube.com/watch?v=ou6JNQwPWE0 
+
+-->
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!--
+<audio id="requiem" autoplay loop>
+        <source src="./music/01_Ligeti_Requiem_1965.mp3" type="audio/mpeg">
+
+<!--    <source src="./music/02_Ligeti_Atmospheres.mp3" type="audio/mpeg"> -->
+<!--    <source src="http://dariographics.com/stuff/GyorgyLigeti-Requiem.mp3" type="audio/mpeg"> -->
+</audio>
+
+
+<div class="center"></div>
+
+<div class="wrap">
+    <div class="right">
+        <div class="split_right"></div>
+        <div class="split_right"></div>
+        <div class="split_right"></div>
+    </div>
+    <div class="left">
+        <div class="split_left"></div>
+        <div class="split_left"></div>
+        <div class="split_left"></div>
+    </div>
+
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+  
+
+
+
+<div id="youtube-player-container">
+    <div id="youtube-player"></div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+let player;
+let started = false;
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtube-player', {
+        videoId: 'SAZRM3my10A',
+        playerVars: {
+            autoplay: 0,
+            controls: 0,
+            loop: 1,
+            playlist: 'SAZRM3my10A'
+        },
+        events: {
+            onReady: function(event) {
+                console.log("Player ready");
+            },
+
+            onStateChange: function(event) {
+                if (event.data === YT.PlayerState.ENDED) {
+                    player.seekTo(0);
+                    player.playVideo();
+                }
+            }
+        }
+    });
+}
+function startAudio() {
+    if (started || !player) return;
+
+    started = true;
+
+    player.unMute();
+    player.setVolume(100);
+    player.playVideo();
+
+    console.log("Audio started");
+}
+
+document.addEventListener('click', startAudio, { once: true });
+document.addEventListener('touchstart', startAudio, { once: true });
+        
+       
+        
+</script>
+
+</body>
+
+</html>
